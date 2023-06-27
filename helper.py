@@ -8,6 +8,12 @@ class HSL2Helper:
         self.DEBUG = None
         self.output_cache = {}
 
+    def get_input(self, input_num):
+        return self.lbs._get_input_value(input_num)
+
+    def get_input_bool(self, input_num):
+        return bool(self.lbs._get_input_value(input_num))
+
     def set_output_sbc(self, output_num, value):
         try:  # Catch this just if the queue gets full between check and write
             if self.output_cache.get(output_num) != value and self.lbs._can_set_output():
